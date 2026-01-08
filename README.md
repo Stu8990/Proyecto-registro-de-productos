@@ -392,6 +392,20 @@ Usuario → Angular UI → HTTP POST (SOAP XML) → .NET Service → PostgreSQL
 
 ---
 
+## Capturas
+
+A continuación se incluyen capturas de pantalla de la aplicación para referencia rápida.
+
+- **Pantalla Productos:**
+
+   ![Pantalla Productos](capturas/pantalla%20productos.png)
+
+- **Pantalla Tipos de Producto:**
+
+   ![Pantalla Tipos de Producto](capturas/Pantalla%20tipo%20producto.png)
+
+---
+
 ## Licencia
 
 Este proyecto es de uso académico.
