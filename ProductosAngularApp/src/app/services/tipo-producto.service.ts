@@ -80,16 +80,17 @@ export class TipoProductoService {
 
   actualizarTipoProducto(tipoProducto: TipoProducto): Observable<any> {
     const soapEnvelope = `<?xml version="1.0" encoding="utf-8"?>
-      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-        <soap:Body>
-          <ActualizarTipoProducto xmlns="http://tempuri.org/">
-            <tipoProducto>
-              <Id>${tipoProducto.Id}</Id>
-              <Tipo>${tipoProducto.Tipo}</Tipo>
-            </tipoProducto>
-          </ActualizarTipoProducto>
-        </soap:Body>
-      </soap:Envelope>`;
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:ser="http://schemas.datacontract.org/2004/07/ServicioProductosSOA.Models">
+        <soapenv:Header/>
+        <soapenv:Body>
+          <tem:ActualizarTipoProducto>
+            <tem:tipoProducto>
+              <ser:Id>${tipoProducto.Id}</ser:Id>
+              <ser:Tipo>${tipoProducto.Tipo}</ser:Tipo>
+            </tem:tipoProducto>
+          </tem:ActualizarTipoProducto>
+        </soapenv:Body>
+      </soapenv:Envelope>`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'text/xml',
