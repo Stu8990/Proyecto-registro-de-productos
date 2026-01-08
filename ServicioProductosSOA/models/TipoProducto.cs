@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace ServicioProductosSOA.Models;
 
@@ -17,4 +18,7 @@ public class TipoProducto
     }
 
     public TipoProducto() { } // Constructor sin parámetros requerido para SOAP
+    
+    [DataMember]
+    public ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }

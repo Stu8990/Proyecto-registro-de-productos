@@ -23,5 +23,11 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Producto>().Property(p => p.Descripcion).HasColumnName("descripcion");
         modelBuilder.Entity<Producto>().Property(p => p.Valor).HasColumnName("valor");
         modelBuilder.Entity<Producto>().Property(p => p.Costo).HasColumnName("costo");
+        modelBuilder.Entity<Producto>()
+            .HasOne(p => p.TipoProducto)
+            .WithMany(t => t.Productos)
+            .HasForeignKey(p => p.IdTipo)
+            .HasConstraintName("fk_producto_tipo_producto")
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

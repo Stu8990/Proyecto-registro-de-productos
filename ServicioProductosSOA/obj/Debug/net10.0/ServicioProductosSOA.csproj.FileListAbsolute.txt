@@ -162,3 +162,4 @@ C:\Users\jhou2\Desktop\cursos\Web avanzadas\taller 8 de enero\ServicioProductosS
 C:\Users\jhou2\Desktop\cursos\Web avanzadas\taller 8 de enero\ServicioProductosSOA\obj\Debug\net10.0\ServicioProductosSOA.pdb
 C:\Users\jhou2\Desktop\cursos\Web avanzadas\taller 8 de enero\ServicioProductosSOA\obj\Debug\net10.0\ServicioProductosSOA.genruntimeconfig.cache
 C:\Users\jhou2\Desktop\cursos\Web avanzadas\taller 8 de enero\ServicioProductosSOA\obj\Debug\net10.0\ref\ServicioProductosSOA.dll
+C:\Users\jhou2\Desktop\cursos\Web avanzadas\taller 8 de enero\ServicioProductosSOA\obj\Debug\net10.0\ServicioProductosSOA.sourcelink.json

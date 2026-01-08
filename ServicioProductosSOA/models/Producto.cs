@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServicioProductosSOA.Models;
 
@@ -29,4 +30,7 @@ public class Producto
     }
 
     public Producto() { } // Constructor sin parámetros requerido para SOAP
+
+    [ForeignKey(nameof(IdTipo))]
+    public TipoProducto TipoProducto { get; set; }
 }
