@@ -1,0 +1,6 @@
+@ServicioProductosSOA_HostAddress = http://localhost:5234
+
+GET {{ServicioProductosSOA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

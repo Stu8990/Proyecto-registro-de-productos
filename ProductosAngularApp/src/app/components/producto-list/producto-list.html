@@ -1,0 +1,87 @@
+<div class="container">
+  <h2>Gestión de Productos</h2>
+
+  <!-- Formulario para agregar nuevo producto -->
+  <div class="form-section" *ngIf="!modoEdicion">
+    <h3>Agregar Nuevo Producto</h3>
+    <div class="form-group">
+      <label>Tipo de Producto:</label>
+      <select [(ngModel)]="nuevoProducto.IdTipo">
+        <option value="0">Seleccione un tipo</option>
+        <option *ngFor="let tipo of tiposProducto" [value]="tipo.Id">{{ tipo.Tipo }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Descripción:</label>
+      <input type="text" [(ngModel)]="nuevoProducto.Descripcion" placeholder="Ingrese la descripción">
+    </div>
+    <div class="form-group">
+      <label>Valor:</label>
+      <input type="number" [(ngModel)]="nuevoProducto.Valor" placeholder="Ingrese el valor" step="0.01">
+    </div>
+    <div class="form-group">
+      <label>Costo:</label>
+      <input type="number" [(ngModel)]="nuevoProducto.Costo" placeholder="Ingrese el costo" step="0.01">
+    </div>
+    <button (click)="agregarProducto()" class="btn-add">Agregar</button>
+  </div>
+
+  <!-- Formulario para editar producto -->
+  <div class="form-section" *ngIf="modoEdicion && productoSeleccionado">
+    <h3>Editar Producto</h3>
+    <div class="form-group">
+      <label>ID:</label>
+      <input type="number" [(ngModel)]="productoSeleccionado.Id" readonly>
+    </div>
+    <div class="form-group">
+      <label>Tipo de Producto:</label>
+      <select [(ngModel)]="productoSeleccionado.IdTipo">
+        <option *ngFor="let tipo of tiposProducto" [value]="tipo.Id">{{ tipo.Tipo }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Descripción:</label>
+      <input type="text" [(ngModel)]="productoSeleccionado.Descripcion" placeholder="Ingrese la descripción">
+    </div>
+    <div class="form-group">
+      <label>Valor:</label>
+      <input type="number" [(ngModel)]="productoSeleccionado.Valor" placeholder="Ingrese el valor" step="0.01">
+    </div>
+    <div class="form-group">
+      <label>Costo:</label>
+      <input type="number" [(ngModel)]="productoSeleccionado.Costo" placeholder="Ingrese el costo" step="0.01">
+    </div>
+    <button (click)="actualizarProducto()" class="btn-update">Actualizar</button>
+    <button (click)="cancelarEdicion()" class="btn-cancel">Cancelar</button>
+  </div>
+
+  <!-- Lista de productos -->
+  <div class="list-section">
+    <h3>Lista de Productos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Descripción</th>
+          <th>Valor</th>
+          <th>Costo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.Id }}</td>
+          <td>{{ obtenerNombreTipo(producto.IdTipo) }}</td>
+          <td>{{ producto.Descripcion }}</td>
+          <td>{{ producto.Valor | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>{{ producto.Costo | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>
+            <button (click)="seleccionarParaEditar(producto)" class="btn-edit">Editar</button>
+            <button (click)="eliminarProducto(producto.Id)" class="btn-delete">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

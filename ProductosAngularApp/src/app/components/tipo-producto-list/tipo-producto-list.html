@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Gestión de Tipos de Producto</h2>
+
+  <!-- Formulario para agregar nuevo tipo -->
+  <div class="form-section" *ngIf="!modoEdicion">
+    <h3>Agregar Nuevo Tipo</h3>
+    <div class="form-group">
+      <!-- ID se genera automáticamente en la base de datos -->
+      <label>Tipo:</label>
+      <input type="text" [(ngModel)]="nuevoTipoProducto.Tipo" placeholder="Ingrese el tipo de producto" name="tipo">
+      <button (click)="agregarTipoProducto()" class="btn-add">Agregar</button>
+    </div>
+  </div>
+
+  <!-- Formulario para editar tipo -->
+  <div class="form-section" *ngIf="modoEdicion && tipoProductoSeleccionado">
+    <h3>Editar Tipo de Producto</h3>
+    <div class="form-group">
+      <label>ID:</label>
+      <input type="number" [(ngModel)]="tipoProductoSeleccionado.Id" readonly>
+    </div>
+    <div class="form-group">
+      <label>Tipo:</label>
+      <input type="text" [(ngModel)]="tipoProductoSeleccionado.Tipo" placeholder="Ingrese el tipo de producto">
+    </div>
+    <button (click)="actualizarTipoProducto()" class="btn-update">Actualizar</button>
+    <button (click)="cancelarEdicion()" class="btn-cancel">Cancelar</button>
+  </div>
+
+  <!-- Lista de tipos de producto -->
+  <div class="list-section">
+    <h3>Lista de Tipos de Producto</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tipo of tiposProducto">
+          <td>{{ tipo.Id }}</td>
+          <td>{{ tipo.Tipo }}</td>
+          <td>
+            <button (click)="seleccionarParaEditar(tipo)" class="btn-edit">Editar</button>
+            <button (click)="eliminarTipoProducto(tipo.Id)" class="btn-delete">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

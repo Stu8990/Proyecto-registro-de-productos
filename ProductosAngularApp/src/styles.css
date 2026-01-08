@@ -1,0 +1,24 @@
+/* Global Styles */
+:root {
+  --primary: #003366;
+  --secondary: #669933;
+  --accent: #E91E63;
+  --background: #F4F6F8;
+  --text-main: #1A202C;
+  --text-light: #666;
+  --border-color: #E0E0E0;
+  --shadow: 0 2px 8px rgba(0, 51, 102, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+}

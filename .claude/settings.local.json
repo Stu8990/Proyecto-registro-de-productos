@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(dotnet:*)",
+      "Bash(ng version:*)",
+      "Bash(ng new:*)",
+      "Bash(ng generate:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
